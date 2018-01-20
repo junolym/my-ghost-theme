@@ -1,0 +1,33 @@
+{{!-- Add Layout --}}
+
+{{!< default}}
+
+{{#tag}}
+
+<section id="cover" class="cover u-flex-wrap">
+    {{!-- Image featured --}}
+    {{#if feature_image}}
+        <div class="u-absolute0 u-block u-bg-gradient" style="background-color:#000"></div>
+        <div class="cover-background cover-lazy u-absolute0 u-bg-cover u-block" style="opacity:0.5" data-original="{{feature_image}}"></div>
+    {{/if}}
+
+    <article class="cover-wrap u-flex-aling-center">
+        {{!-- Tag name --}}
+        <h1 class="cover-title">{{name}}</h1>
+
+        {{!-- tag description --}}
+        <p class="cover-description">
+            {{#if description}}
+                {{description}}
+            {{else}}
+                {{plural ../pagination.total empty=(t "A collection of posts") singular=(t "A collection of 1 post") plural=(t "A collection of % posts")}}
+            {{/if}}
+        </p>
+    </article>
+    <a href="#ScrollBody" class="scrolltop mouse u-h-b-md"><span class="scroll"></span></a>
+</section>
+
+{{/tag}}
+
+{{!-- Add Loop --}}
+{{> "loop"}}
